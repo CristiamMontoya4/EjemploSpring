@@ -7,7 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 import java.util.Optional;
 
-public interface ProductoCrudRepository extends CrudRepository<Producto, Integer> { //usa como parametros la taba y tipo de dato para el Id
+public interface ProductoCrudRepository extends CrudRepository<Producto, Integer> { //usa como parametros la tabla y tipo de dato para el Id
 
     //Esto es una forma de hacer la consulta directa y el metodo se puedo nombre de cualquier manera
    // @Query(value = "SELECT * FROM productos WHERE id_categoria = ?", nativeQuery = true)
