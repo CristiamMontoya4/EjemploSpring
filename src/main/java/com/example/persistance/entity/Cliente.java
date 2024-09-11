@@ -18,6 +18,14 @@ public class Cliente {
 
     private Integer celular;
 
+    public List<Compra> getCompras() {
+        return compras;
+    }
+
+    public void setCompras(List<Compra> compras) {
+        this.compras = compras;
+    }
+
     private String direccion;
 
     @Column(name = "correo_electronico")

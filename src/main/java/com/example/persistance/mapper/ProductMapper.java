@@ -19,7 +19,7 @@ public interface ProductMapper {
             @Mapping(source = "cantidadStock", target = "stock"),
             @Mapping(source = "estado", target = "active"),
             // cuando vaya a convertir categoria a category, use el category mapper establecido en el mapper
-            /*@Mapping(source = "categoria", target = "category")*/
+            @Mapping(source = "categoria", target = "category")
     })
     Product toProduct(Producto producto);
     List<Product> toProducts(List<Producto> productos); //Internamente MapStruct entiende que se debe comportar de la misma manera, como si se tratara de mappings

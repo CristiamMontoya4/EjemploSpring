@@ -51,7 +51,6 @@ public class ProductController {
         }
     }
 
-    //No permite crear 😞
     @PostMapping("/save") //el postmapping, establece una petición post
     public ResponseEntity<Product> save(@RequestBody Product product) {  //Con el request body, permite leer el body, donde es la información para crear el producto
         //Ejemplo del Json para el body {"name": "Mango2", "categoryId": 1, "price": 2100.0, "stock": 250, "active": true }
