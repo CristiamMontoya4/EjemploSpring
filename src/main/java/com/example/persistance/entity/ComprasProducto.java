@@ -16,7 +16,7 @@ public class ComprasProducto {
     private Boolean estado;
 
     @ManyToOne
-    @MapsId("idCompra")
+    @MapsId("idCompra")  //va el nombre de la llave primaria que queremos que se enlace, para que se pueda guardar en cascada
     @JoinColumn(name= "id_compra", insertable = false, updatable = false)
     private Compra compra;
 
