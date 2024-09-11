@@ -27,6 +27,10 @@ public class ProductService {
         return productRepository.getByCategory(categoryId);
     }
 
+    public Optional<List<Product>> getScarseProducts(int quantity) {
+        return productRepository.getScarseProducts(quantity);
+    }
+
     public Product save(Product product) {
         return productRepository.save(product);
     }

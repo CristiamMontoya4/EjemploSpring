@@ -7,14 +7,11 @@ import com.example.persistance.entity.Producto;
 import com.example.persistance.mapper.ProductMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
-import javax.swing.text.html.Option;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 
-@Repository  //Esta anotación es un estereotipo de
+@Repository  //Esta anotación es un estereotipo de spring, indicando que esta clase se encarga de interactuar con la BD, debe ir en la implementación de la interfaz
 public class ProductoRepository implements ProductRepository {
     @Autowired //Con esta notación, se le permite a spring crear la estancia de ese objeto
     private ProductoCrudRepository productoCrudRepository;

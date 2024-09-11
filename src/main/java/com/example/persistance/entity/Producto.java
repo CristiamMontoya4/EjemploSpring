@@ -17,8 +17,8 @@ public class Producto {
     @Column(name = "id_categoria")  //aqui usamos la anotación column, porque se le cambia el nombre a la columna
     private Integer idCategoria;
 
-    @Column(name = "codigo_barras")
-    private Integer codigoBarras;
+  /*  @Column(name = "codigo_barras")
+    private Integer codigoBarras;  */
 
     @Column(name = "precio_venta")
     private Double precioVenta;
@@ -56,14 +56,14 @@ public class Producto {
         this.idCategoria = idCategoria;
     }
 
-    public Integer getCodigoBarras() {
+  /*  public Integer getCodigoBarras() {
         return codigoBarras;
     }
 
     public void setCodigoBarras(Integer codigoBarras) {
         this.codigoBarras = codigoBarras;
     }
-
+*/
     public Double getPrecioVenta() {
         return precioVenta;
     }
