@@ -2,6 +2,10 @@ package com.example.web.controller;
 
 import com.example.domain.Product;
 import com.example.domain.service.ProductService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,13 +22,20 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping("/all") //permite obetener información
+    @Operation(summary = "Get all supermarket products")  //Información sobre el endpoint para la documentación de swagger
+    @ApiResponse(responseCode = "200", description = "OK")  //Información para respuestas del response
     public ResponseEntity<List<Product>> getAllProducts() {
         return new ResponseEntity<>(productService.getAll(), HttpStatus.OK);
     }
 
     //Trae el producto pero la categora como null
     @GetMapping("/{id}") //las llaves indican una vatiable que va a recibir
-    public ResponseEntity<Product> getProduct(@PathVariable("id") int productId) {  //la notación pathvariable indica que reciba el id de la url para ingresar como parametro para la función
+    @Operation(summary = "Search a product with ID")
+    @ApiResponses({
+        @ApiResponse(responseCode = "200", description = "OK"),
+        @ApiResponse(responseCode = "404", description = "Product Not Found"),
+    })
+    public ResponseEntity<Product> getProduct(@Parameter(description = "The id of the product", required = true) @PathVariable("id") int productId) {  //la notación pathvariable indica que reciba el id de la url para ingresar como parametro para la función
         return productService.getProduct(productId)
                 .map(product -> new ResponseEntity<>(product, HttpStatus.OK))// si existe un producto enviara unhttp esattus 200 y los productos
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));  //si no existe un producto devuelve un not found
